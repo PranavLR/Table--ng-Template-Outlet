@@ -1,28 +1,29 @@
-
 <!-- No templates provided, will use default layout -->
-<!-- <app-table [data]="employees"></app-table> -->
+<app-table [data]="employees"></app-table>
 
 <!-- Basic configured template -->
-<!-- <app-table [data]="employees">
-  <ng-template #headers>
+<app-table [data]="employees">
+  <ng-template appTableHeader>
     <th>First</th>
     <th>Last</th>
   </ng-template>
-</app-table> -->
+</app-table>
 
 <!-- Highly configured template with conditional elements -->
 <app-table [data]="inventory">
-  <ng-template #headers>
+  <ng-template [appTableHeader]="inventory" let-header>
     <th>Item</th>
     <th>Price</th>
     <th></th>
     <th></th>
   </ng-template>
-  <ng-template #rows let-row>
+  <ng-template [appTableRow]="inventory" let-row>
     <td>{{ row.name }}</td>
     <td>{{ row.price | currency: row.currency }}</td>
     <td>
-      <button *ngIf="row.inStock > 0" (click)="purchaseItem(row.plu)">Buy now</button>
+      <button *ngIf="row.inStock > 0" (click)="purchaseItem(row.plu)">
+        Buy now
+      </button>
     </td>
     <td>
       <button>Delete</button>

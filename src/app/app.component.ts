@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
+import { Employee, Inventory } from './shared/data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'table-app';
-
-  employees = [
+export class AppComponent { 
+  employees: Employee[] = [
     { firstName: 'Employee', lastName: 'One' },
     { firstName: 'Employee', lastName: 'Two' },
     { firstName: 'Employee', lastName: 'Three' },
@@ -16,7 +15,7 @@ export class AppComponent {
     { firstName: 'Employee', lastName: 'Five' },
   ];
 
-  inventory = [
+  inventory: Inventory[] = [
     {
       plu: 110,
       supplier: 'X Corp',
